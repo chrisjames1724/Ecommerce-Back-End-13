@@ -48,7 +48,9 @@ router.put("/:id", async (req, res) => {
       },
     });
     res.status(200).json(categoryData);
-  } catch (error) {}
+  } catch (error) {
+    res.status(400).json(err);
+  }
 
   // update a category by its `id` value
 });
@@ -61,8 +63,8 @@ router.delete("/:id", async (req, res) => {
       },
     });
     res.status(200).json(categoryData);
-  } catch (error) {
-    res.status(500).json(err);
+  } catch (err) {
+    res.status(400).json(err);
   }
 
   // delete a category by its `id` value
